@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0c1929;
+  --surface: #132034;
+  --surface-2: #1a2b42;
+  --border: rgba(232, 184, 75, 0.1);
+  --border-hover: rgba(232, 184, 75, 0.25);
+  --text-1: #f0f0f6;
+  --text-2: #8898a8;
+  --text-3: #4a5f72;
+  --accent: #e8b84b;
+  --accent-dark: #c49a30;
+  --accent-glow: rgba(232, 184, 75, 0.15);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-sans), "Outfit", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(232, 184, 75, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 184, 75, 0.025) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+@layer components {
+  .card {
+    @apply relative overflow-hidden rounded-2xl border p-6 transition-all duration-300;
+    border-color: var(--border);
+    background-color: var(--surface);
+  }
+
+  .card:hover {
+    border-color: var(--border-hover);
+    background-color: var(--surface-2);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(232, 184, 75, 0.08);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(232, 184, 75, 0.04), transparent);
+    transition: none;
+  }
+
+  .card:hover::before {
+    animation: shine 0.8s ease-in-out forwards;
+  }
+
+  @keyframes shine {
+    0% { left: -100%; }
+    100% { left: 150%; }
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-200;
+    background: linear-gradient(135deg, #e8b84b, #c49a30);
+    color: #0c1929;
+    box-shadow: 0 0 20px rgba(232, 184, 75, 0.25);
+    font-weight: 700;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(232, 184, 75, 0.4);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-xl border px-6 py-3 text-sm font-medium transition-all duration-200;
+    border-color: var(--border);
+    color: var(--text-2);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--border-hover);
+    color: var(--text-1);
+    background-color: rgba(232, 184, 75, 0.05);
+  }
+
+  .input {
+    @apply w-full rounded-xl border px-4 py-3 text-sm outline-none transition-all duration-200;
+    background-color: var(--surface);
+    border-color: var(--border);
+    color: var(--text-1);
+  }
+
+  .input::placeholder {
+    color: var(--text-3);
+  }
+
+  .input:focus {
+    border-color: rgba(232, 184, 75, 0.4);
+    box-shadow: 0 0 0 3px rgba(232, 184, 75, 0.07);
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-medium;
+    border-color: rgba(232, 184, 75, 0.2);
+    background-color: rgba(232, 184, 75, 0.07);
+    color: #e8b84b;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #e8b84b 0%, #f5d47a 60%, #c49a30 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-widest;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+
+  .divider {
+    @apply border-t;
+    border-color: var(--border);
+  }
+
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    opacity: 0.4;
+  }
+}
+
+.dud {
+  color: #e8b84b;
+  opacity: 0.6;
+}
