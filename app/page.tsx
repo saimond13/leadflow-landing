@@ -455,7 +455,7 @@ export default function HersecLanding() {
             </AnimatedSection>
             <AnimatedSection delay={140} className="mb-16">
               <p className="mx-auto max-w-2xl text-center text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
-                No usamos soluciones genéricas. Cada herramienta de nuestro stack está integrada y operativa para detectar, documentar y responder ante amenazas reales.
+                No usamos soluciones genéricas. Cada herramienta está integrada y operativa. Detrás de cada alerta hay análisis humano — la automatización amplifica el criterio, no lo reemplaza.
               </p>
             </AnimatedSection>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -471,8 +471,8 @@ export default function HersecLanding() {
                       }}
                     >
                       <div className="absolute top-4 right-4 flex items-center gap-1.5">
-                        <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#4ade80", boxShadow: "0 0 6px rgba(74,222,128,0.6)" }} />
-                        <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: "rgba(74,222,128,0.7)", fontFamily: "monospace" }}>{tool.status}</span>
+                        <span className="h-1.5 w-1.5 rounded-full" style={{ background: "rgba(232,184,75,0.65)", boxShadow: "0 0 5px rgba(232,184,75,0.25)" }} />
+                        <span className="text-[9px] font-bold uppercase tracking-widest" style={{ color: "rgba(232,184,75,0.5)", fontFamily: "monospace" }}>{tool.status}</span>
                       </div>
                       <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: "rgba(232,184,75,0.08)", color: "#e8b84b", border: "1px solid rgba(232,184,75,0.12)" }}>
                         <Icon className="h-5 w-5" />
@@ -584,7 +584,7 @@ export default function HersecLanding() {
                     Seguridad real,<br /><span className="text-gradient">no marketing.</span>
                   </h2>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
-                    No somos una agencia genérica con "servicio de seguridad". Somos especialistas en protección digital operativa para pymes y profesionales que no pueden darse el lujo de ser vulnerables.
+                    No somos una agencia genérica con "servicio de seguridad". Somos especialistas en protección digital operativa — combinamos análisis humano con automatización inteligente para que ninguna amenaza pase desapercibida.
                   </p>
                 </AnimatedSection>
               </div>
@@ -737,7 +737,7 @@ export default function HersecLanding() {
             </div>
             <div className="gold-line mb-6" />
             <div className="flex flex-col items-center justify-between gap-2 text-center text-xs uppercase tracking-wide md:flex-row" style={{ color: "var(--text-3)" }}>
-              <span>© {new Date().getFullYear()} HERSEC Security. Todos los derechos reservados.</span>
+              <span>© {new Date().getFullYear()} HERSEC Security — Argentina / LATAM. Todos los derechos reservados.</span>
               <a href="mailto:contacto@hersecsecurity.com" className="hover:text-white transition-colors" style={{ color: "rgba(232,184,75,0.5)" }}>contacto@hersecsecurity.com</a>
             </div>
           </div>
