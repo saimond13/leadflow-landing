@@ -10,25 +10,25 @@ const SERVICES = [
     id: "01",
     title: "Mail Shield",
     description: "Analizamos cada correo entrante en busca de indicadores de phishing, dominios falsos y adjuntos maliciosos. Alertas en tiempo real antes de que el daño ocurra.",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200",
   },
   {
     id: "02",
     title: "Exposure Scan",
-    description: "Escaneamos fuentes públicas, dark web y registros digitales para mapear exactamente qué información tuya o de tu empresa está expuesta y cómo podría usarse en tu contra.",
+    description: "Escaneamos fuentes públicas, registros digitales y bases de datos comprometidas para mapear exactamente qué información tuya está expuesta y cómo podría usarse.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200",
   },
   {
     id: "03",
     title: "Fraud Response",
     description: "Cuando ocurre un fraude digital, cada hora cuenta. Te acompañamos en la recolección de evidencia, análisis del incidente y coordinación de respuesta para minimizar el impacto.",
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
+    image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=1200",
   },
   {
     id: "04",
     title: "Automation Guard",
-    description: "Diseñamos e implementamos automatizaciones con controles de seguridad integrados. Flujos seguros que validan identidades, detectan anomalías y protegen tus procesos críticos.",
-    image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1200",
+    description: "Diseñamos automatizaciones con controles de seguridad integrados. Flujos que validan identidades, detectan anomalías y protegen tus procesos críticos en tiempo real.",
+    image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200",
   },
 ];
 
@@ -123,7 +123,7 @@ export function VerticalTabs() {
                   <motion.div key={activeIndex} custom={direction} variants={variants} initial="enter" animate="center" exit="exit" transition={{ y: { type: "spring", stiffness: 260, damping: 32 }, opacity: { duration: 0.4 } }} className="absolute inset-0 w-full h-full cursor-pointer" onClick={handleNext}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={SERVICES[activeIndex].image} alt={SERVICES[activeIndex].title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105 block" />
-                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(12,25,41,0.7) 0%, rgba(12,25,41,0.1) 50%, transparent 100%)" }} />
+                    <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,18,32,0.85) 0%, rgba(8,18,32,0.2) 50%, transparent 100%)" }} />
                     <div className="absolute bottom-16 left-8">
                       <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: GOLD, fontFamily: "monospace" }}>HERSEC /{SERVICES[activeIndex].id} — {SERVICES[activeIndex].title}</span>
                     </div>
@@ -131,8 +131,8 @@ export function VerticalTabs() {
                 </AnimatePresence>
 
                 <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 flex gap-2 md:gap-3 z-20">
-                  <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90" style={{ background: "rgba(12,25,41,0.85)", border: `1px solid ${BORDER}`, color: GOLD, backdropFilter: "blur(8px)" }} aria-label="Anterior"><ChevronLeft size={20} /></button>
-                  <button onClick={(e) => { e.stopPropagation(); handleNext(); }} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90" style={{ background: "rgba(12,25,41,0.85)", border: `1px solid ${BORDER}`, color: GOLD, backdropFilter: "blur(8px)" }} aria-label="Siguiente"><ChevronRight size={20} /></button>
+                  <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90" style={{ background: "rgba(8,18,32,0.9)", border: `1px solid ${BORDER}`, color: GOLD, backdropFilter: "blur(8px)" }} aria-label="Anterior"><ChevronLeft size={20} /></button>
+                  <button onClick={(e) => { e.stopPropagation(); handleNext(); }} className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all active:scale-90" style={{ background: "rgba(8,18,32,0.9)", border: `1px solid ${BORDER}`, color: GOLD, backdropFilter: "blur(8px)" }} aria-label="Siguiente"><ChevronRight size={20} /></button>
                 </div>
 
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
