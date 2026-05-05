@@ -6,10 +6,30 @@ import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const SERVICES = [
-  { id: "01", title: "Ciberseguridad", description: "Protegemos tu infraestructura contra amenazas reales. Análisis de vulnerabilidades, hardening de servidores y monitoreo continuo de seguridad.", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200" },
-  { id: "02", title: "Automatizaciones n8n", description: "Conectamos tus herramientas y eliminamos procesos manuales. Flujos inteligentes que ahorran tiempo y reducen errores humanos.", image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1200" },
-  { id: "03", title: "Desarrollo Web & SaaS", description: "Creamos plataformas web, sistemas SaaS y aplicaciones a medida. Tecnología moderna, diseño profesional, entregas reales.", image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200" },
-  { id: "04", title: "Auditorías Técnicas", description: "Revisión completa de infraestructura, código y configuraciones para encontrar vulnerabilidades antes que alguien las explote.", image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200" },
+  {
+    id: "01",
+    title: "Mail Shield",
+    description: "Analizamos cada correo entrante en busca de indicadores de phishing, dominios falsos y adjuntos maliciosos. Alertas en tiempo real antes de que el daño ocurra.",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200",
+  },
+  {
+    id: "02",
+    title: "Exposure Scan",
+    description: "Escaneamos fuentes públicas, dark web y registros digitales para mapear exactamente qué información tuya o de tu empresa está expuesta y cómo podría usarse en tu contra.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200",
+  },
+  {
+    id: "03",
+    title: "Fraud Response",
+    description: "Cuando ocurre un fraude digital, cada hora cuenta. Te acompañamos en la recolección de evidencia, análisis del incidente y coordinación de respuesta para minimizar el impacto.",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200",
+  },
+  {
+    id: "04",
+    title: "Automation Guard",
+    description: "Diseñamos e implementamos automatizaciones con controles de seguridad integrados. Flujos seguros que validan identidades, detectan anomalías y protegen tus procesos críticos.",
+    image: "https://images.unsplash.com/photo-1551808525-51a94da548ce?q=80&w=1200",
+  },
 ];
 
 const AUTO_PLAY_DURATION = 5000;
@@ -59,8 +79,8 @@ export function VerticalTabs() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1 pt-4">
             <div className="space-y-1 mb-12">
-              <h2 className="text-3xl font-bold uppercase tracking-tight md:text-4xl lg:text-5xl" style={{ color: TEXT_PRIMARY, fontFamily: "var(--font-serif)" }}>Cómo podemos ayudarte</h2>
-              <span className="text-[10px] font-medium uppercase tracking-[0.3em] block ml-0.5" style={{ color: TEXT_MUTED }}>(SERVICIOS)</span>
+              <h2 className="text-3xl font-bold uppercase tracking-tight md:text-4xl lg:text-5xl" style={{ color: TEXT_PRIMARY, fontFamily: "var(--font-serif)" }}>En qué consiste cada servicio</h2>
+              <span className="text-[10px] font-medium uppercase tracking-[0.3em] block ml-0.5" style={{ color: TEXT_MUTED }}>(HERSEC SECURITY)</span>
             </div>
             <div className="flex flex-col space-y-0">
               {SERVICES.map((service, index) => {
@@ -105,7 +125,7 @@ export function VerticalTabs() {
                     <img src={SERVICES[activeIndex].image} alt={SERVICES[activeIndex].title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105 block" />
                     <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(12,25,41,0.7) 0%, rgba(12,25,41,0.1) 50%, transparent 100%)" }} />
                     <div className="absolute bottom-16 left-8">
-                      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: GOLD, fontFamily: "monospace" }}>/{SERVICES[activeIndex].id} — {SERVICES[activeIndex].title}</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.2em]" style={{ color: GOLD, fontFamily: "monospace" }}>HERSEC /{SERVICES[activeIndex].id} — {SERVICES[activeIndex].title}</span>
                     </div>
                   </motion.div>
                 </AnimatePresence>

@@ -89,12 +89,12 @@ export const ScrambledTagline: React.FC = () => {
   useEffect(() => {
     if (mounted && scramblerRef.current) {
       const phrases = [
-        "Tu Asesor Tecnologico Personal",
-        "Ciberseguridad a tu medida",
-        "Automatizaciones con n8n",
-        "Desarrollo Web y SaaS",
-        "Auditorias tecnicas reales",
-        "Tecnologia que protege tu negocio",
+        "Inteligencia, Prevencion y Respuesta Digital",
+        "Proteccion contra phishing y fraude",
+        "Deteccion temprana de amenazas online",
+        "Seguridad operativa para tu empresa",
+        "Diagnostico de exposicion digital",
+        "Respuesta ante fraudes e incidentes",
       ]
       let counter = 0
       const next = () => {
@@ -115,7 +115,7 @@ export const ScrambledTagline: React.FC = () => {
       className="text-center text-sm font-medium uppercase"
       style={{ fontFamily: "monospace", color: "#e8b84b", letterSpacing: "0.22em", minWidth: "32ch", minHeight: "1.6em" }}
     >
-      Tu Asesor Tecnologico Personal
+      Inteligencia, Prevencion y Respuesta Digital
     </p>
   )
 }

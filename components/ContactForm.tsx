@@ -5,11 +5,11 @@ import { useState, FormEvent } from "react"
 const WEBHOOK_URL = "https://api.mileadflow.com/webhook/hersec-contact"
 
 const SERVICES = [
-  "Ciberseguridad",
-  "Automatizaciones con n8n",
-  "Desarrollo Web / SaaS",
-  "Auditoría Técnica",
-  "Otro / Consulta general",
+  "Mail Shield — Detección de phishing",
+  "Exposure Scan — Diagnóstico de exposición digital",
+  "Fraud Response — Respuesta ante estafas",
+  "Automation Guard — Automatizaciones seguras",
+  "Consulta general",
 ]
 
 export default function ContactForm() {
@@ -41,8 +41,8 @@ export default function ContactForm() {
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl px-8 py-16 text-center" style={{ background: "var(--surface)", border: "1px solid rgba(232,184,75,0.25)" }}>
         <div className="flex h-16 w-16 items-center justify-center rounded-full text-3xl" style={{ background: "rgba(232,184,75,0.1)", color: "#e8b84b" }}>✓</div>
-        <h3 className="text-xl font-semibold" style={{ color: "var(--text-1)" }}>¡Mensaje recibido!</h3>
-        <p className="text-sm" style={{ color: "var(--text-2)" }}>Te respondemos en menos de 24hs. Revisá tu bandeja de entrada.</p>
+        <h3 className="text-xl font-semibold" style={{ color: "var(--text-1)" }}>¡Solicitud recibida!</h3>
+        <p className="text-sm" style={{ color: "var(--text-2)" }}>Te respondemos en menos de 24hs con tu diagnóstico inicial. Revisá tu bandeja de entrada.</p>
         <button onClick={() => setStatus("idle")} className="mt-2 text-xs underline" style={{ color: "var(--text-3)" }}>Enviar otro mensaje</button>
       </div>
     )
@@ -65,15 +65,15 @@ export default function ContactForm() {
         <input className="input" type="text" name="empresa" placeholder="Nombre de tu empresa (opcional)" value={form.empresa} onChange={handleChange} />
       </div>
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-medium" style={{ color: "var(--text-2)" }}>¿Qué necesitás? *</label>
+        <label className="text-xs font-medium" style={{ color: "var(--text-2)" }}>¿Qué servicio te interesa? *</label>
         <select className="input" name="servicio" value={form.servicio} onChange={handleChange} required>
           <option value="" disabled>Seleccioná un servicio</option>
           {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
       <div className="flex flex-col gap-1.5">
-        <label className="text-xs font-medium" style={{ color: "var(--text-2)" }}>Contanos más *</label>
-        <textarea className="input min-h-[120px] resize-none" name="mensaje" placeholder="Describí brevemente tu situación o lo que querés lograr..." value={form.mensaje} onChange={handleChange} required />
+        <label className="text-xs font-medium" style={{ color: "var(--text-2)" }}>Contanos tu situación *</label>
+        <textarea className="input min-h-[120px] resize-none" name="mensaje" placeholder="¿Qué problema querés resolver? ¿Ya tuviste algún incidente?" value={form.mensaje} onChange={handleChange} required />
       </div>
       {status === "error" && <p className="text-xs" style={{ color: "#f87171" }}>Hubo un error al enviar. Intentá de nuevo.</p>}
       <button type="submit" disabled={status === "loading"} className="btn-primary w-full justify-center">
@@ -85,9 +85,9 @@ export default function ContactForm() {
             </svg>
             Enviando...
           </span>
-        ) : "Enviar mensaje"}
+        ) : "Solicitar diagnóstico"}
       </button>
-      <p className="text-center text-xs" style={{ color: "var(--text-3)" }}>Primera consulta sin costo · Respondemos en &lt;24hs</p>
+      <p className="text-center text-xs" style={{ color: "var(--text-3)" }}>Diagnóstico inicial sin costo · Respondemos en &lt;24hs</p>
     </form>
   )
 }

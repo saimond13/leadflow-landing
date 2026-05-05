@@ -11,6 +11,31 @@ function ShieldIcon({ className }: { className?: string }) {
     </svg>
   )
 }
+function MailIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+      <polyline points="22,6 12,13 2,6" />
+    </svg>
+  )
+}
+function ScanIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 7V5a2 2 0 0 1 2-2h2" /><path d="M17 3h2a2 2 0 0 1 2 2v2" />
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2" /><path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+      <rect x="7" y="7" width="10" height="10" rx="1" />
+    </svg>
+  )
+}
+function AlertIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+      <line x1="12" y1="9" x2="12" y2="13" /><line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  )
+}
 function ZapIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
@@ -18,17 +43,19 @@ function ZapIcon({ className }: { className?: string }) {
     </svg>
   )
 }
-function CodeIcon({ className }: { className?: string }) {
+function EyeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" />
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" />
     </svg>
   )
 }
-function SearchIcon({ className }: { className?: string }) {
+function LockIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
     </svg>
   )
 }
@@ -47,49 +74,72 @@ function ArrowRightIcon({ className }: { className?: string }) {
   )
 }
 
-const SERVICES = [
+const PRODUCTS = [
   {
-    icon: ShieldIcon,
-    title: "Ciberseguridad",
-    description: "Protegemos tu infraestructura contra amenazas reales. Análisis de vulnerabilidades, hardening de servidores y monitoreo continuo.",
-    tags: ["Pentesting", "Hardening", "Vulnerabilidades"],
+    icon: MailIcon,
+    title: "HERSEC Mail Shield",
+    description: "Detección temprana de correos sospechosos, phishing y amenazas entrantes. Analizamos cada mensaje antes de que impacte en tu operación.",
+    tags: ["Phishing", "Email Threats", "Detección en tiempo real"],
+  },
+  {
+    icon: ScanIcon,
+    title: "HERSEC Exposure Scan",
+    description: "Diagnóstico de exposición digital y riesgos públicos. Identificamos qué información tuya o de tu empresa está expuesta en la red.",
+    tags: ["OSINT", "Riesgo digital", "Diagnóstico"],
+  },
+  {
+    icon: AlertIcon,
+    title: "HERSEC Fraud Response",
+    description: "Asistencia y ordenamiento de evidencia ante estafas digitales. Te acompañamos cuando ya ocurrió el fraude para minimizar el daño.",
+    tags: ["Respuesta a incidentes", "Evidencia digital", "Fraude"],
   },
   {
     icon: ZapIcon,
-    title: "Automatizaciones n8n",
-    description: "Conectamos tus herramientas y eliminamos procesos manuales. Flujos inteligentes que ahorran tiempo y reducen errores.",
-    tags: ["n8n", "APIs", "Integraciones", "Bots"],
+    title: "HERSEC Automation Guard",
+    description: "Automatizaciones seguras para procesos internos y validaciones críticas. Integramos herramientas sin comprometer la seguridad de tu operación.",
+    tags: ["n8n", "Procesos seguros", "Automatización"],
+  },
+]
+
+const PAIN_POINTS = [
+  {
+    icon: MailIcon,
+    title: "Correos de phishing que parecen reales",
+    description: "Los atacantes imitan a proveedores, bancos o colegas. Un clic equivocado puede comprometer toda tu operación.",
   },
   {
-    icon: CodeIcon,
-    title: "Desarrollo Web & SaaS",
-    description: "Creamos plataformas web, sistemas SaaS y aplicaciones a medida. Tecnología moderna, diseño profesional, entregas reales.",
-    tags: ["Next.js", "React", "Node.js", "SaaS"],
+    icon: EyeIcon,
+    title: "Tu información está expuesta sin saberlo",
+    description: "Datos de tu empresa, empleados o clientes circulan en la red. No lo sabés hasta que alguien los usa en tu contra.",
   },
   {
-    icon: SearchIcon,
-    title: "Auditorías Técnicas",
-    description: "Revisión completa de tu infraestructura, código y configuraciones para encontrar vulnerabilidades antes que alguien las explote.",
-    tags: ["Security Review", "Code Audit", "Infra"],
+    icon: AlertIcon,
+    title: "Estafas digitales cada vez más sofisticadas",
+    description: "Transferencias fraudulentas, suplantación de identidad, accesos no autorizados. Las pymes son el blanco preferido.",
+  },
+  {
+    icon: LockIcon,
+    title: "Procesos internos sin controles de seguridad",
+    description: "Automatizaciones mal configuradas o integraciones inseguras abren puertas que nadie vigila.",
   },
 ]
 
 const PROCESS = [
-  { step: "01", title: "Diagnóstico", description: "Analizamos tu situación actual: qué tecnología usás, qué problemas tenés y qué objetivos querés alcanzar." },
-  { step: "02", title: "Plan a medida", description: "Diseñamos la solución más eficiente para tu caso. Sin paquetes genéricos, sin costos innecesarios." },
-  { step: "03", title: "Implementación", description: "Ejecutamos, probamos y te acompañamos hasta que todo funcione perfectamente. Y después también." },
+  { step: "01", title: "Analizamos", description: "Evaluamos tu situación actual: qué herramientas usás, qué información está expuesta y cuáles son tus puntos de vulnerabilidad reales." },
+  { step: "02", title: "Detectamos", description: "Identificamos amenazas activas y riesgos latentes antes de que se conviertan en incidentes. Monitoreo continuo y alertas tempranas." },
+  { step: "03", title: "Implementamos", description: "Desplegamos las medidas necesarias, automatizamos procesos de seguridad y te acompañamos para que tu operación quede protegida." },
 ]
 
 const WHY = [
-  "Entregamos lo que prometemos, sin vueltas",
-  "Experiencia real en sistemas productivos",
-  "Conocemos el mercado argentino y sus necesidades",
-  "Precio justo para pymes y emprendedores",
-  "Soporte post-entrega incluido",
-  "Código limpio y documentado que podés controlar",
+  "Foco exclusivo en seguridad digital — no hacemos de todo",
+  "Herramientas reales: VirusTotal, AbuseIPDB, análisis forense",
+  "Alertas inmediatas por WhatsApp ante amenazas detectadas",
+  "Conocemos el contexto argentino y latinoamericano",
+  "Sin paquetes genéricos — diagnóstico real para tu caso",
+  "Respuesta en menos de 24hs ante cualquier incidente",
 ]
 
-const INDUSTRIES = ["Inmobiliarias", "Consultorios", "E-commerce", "Estudios jurídicos", "Restaurantes", "Startups", "ONGs", "Agencias"]
+const SECTORS = ["Estudios jurídicos", "Estudios contables", "Inmobiliarias", "Comercios", "Startups", "Salud", "Logística", "ONGs"]
 
 const glass = {
   background: "rgba(12,25,41,0.88)",
@@ -110,10 +160,10 @@ export default function HersecLanding() {
             style={{ background: "rgba(12,25,41,0.85)", borderBottom: "1px solid rgba(232,184,75,0.08)" }}
           />
           <div className="relative flex items-center justify-between px-6 py-4 md:px-12">
-            <a href="#inicio" aria-label="Hersec — Inicio" className="flex items-center gap-2.5">
+            <a href="#inicio" aria-label="HERSEC Security — Inicio" className="flex items-center gap-2.5">
               <Image
                 src="/hersec-icon.jpg"
-                alt="Logotipo Hersec"
+                alt="Logotipo HERSEC Security"
                 width={36}
                 height={36}
                 className="object-contain rounded-sm"
@@ -127,19 +177,24 @@ export default function HersecLanding() {
               </span>
             </a>
             <nav aria-label="Navegación principal" className="hidden items-center gap-8 md:flex">
-              {["Servicios", "Proceso", "Nosotros", "Contacto"].map((item) => (
+              {[
+                { label: "Riesgos", href: "#riesgos" },
+                { label: "Servicios", href: "#servicios" },
+                { label: "Proceso", href: "#proceso" },
+                { label: "Contacto", href: "#contacto" },
+              ].map((item) => (
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
+                  key={item.label}
+                  href={item.href}
                   className="text-sm font-medium uppercase tracking-wide transition-colors hover:text-white"
                   style={{ color: "var(--text-2)" }}
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
             </nav>
             <a href="#contacto" className="btn-primary text-xs px-5 py-2.5 uppercase tracking-wide">
-              Consultar gratis
+              Solicitar diagnóstico
             </a>
           </div>
         </header>
@@ -150,7 +205,7 @@ export default function HersecLanding() {
             <AnimatedSection delay={0}>
               <div className="badge">
                 <ShieldIcon className="h-3.5 w-3.5" />
-                Tecnología sin fronteras
+                Inteligencia, Prevención y Respuesta Digital
               </div>
             </AnimatedSection>
 
@@ -173,6 +228,17 @@ export default function HersecLanding() {
               <ScrambledTagline />
             </AnimatedSection>
 
+            <AnimatedSection delay={260}>
+              <p
+                className="mx-auto max-w-xl text-base leading-relaxed md:text-lg"
+                style={{ color: "var(--text-2)" }}
+              >
+                Fraudes digitales, phishing y amenazas online afectan a empresas como la tuya todos los días.
+                <br />
+                <span style={{ color: "var(--text-1)" }}>Nosotros los detectamos antes de que sea tarde.</span>
+              </p>
+            </AnimatedSection>
+
             <AnimatedSection delay={280}>
               <div
                 className="w-40 h-px mx-auto"
@@ -191,7 +257,7 @@ export default function HersecLanding() {
                     boxShadow: "0 0 24px rgba(232,184,75,0.3)",
                   }}
                 >
-                  Consultar gratis
+                  Solicitar diagnóstico
                   <ArrowRightIcon className="h-4 w-4" />
                 </a>
                 <a
@@ -206,13 +272,13 @@ export default function HersecLanding() {
 
             <AnimatedSection delay={430}>
               <div className="flex flex-wrap justify-center gap-2 mt-2">
-                {INDUSTRIES.map((ind) => (
+                {SECTORS.map((sector) => (
                   <span
-                    key={ind}
+                    key={sector}
                     className="rounded-full px-3 py-1 text-xs font-medium"
                     style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", color: "var(--text-3)" }}
                   >
-                    {ind}
+                    {sector}
                   </span>
                 ))}
               </div>
@@ -229,65 +295,66 @@ export default function HersecLanding() {
           </div>
         </section>
 
-        {/* Stats bar */}
-        <div style={glass}>
-          <div className="gold-line" />
-          <AnimatedSection className="px-6 py-10 md:px-12">
-            <div className="mx-auto max-w-5xl">
-              <div className="grid grid-cols-2 md:grid-cols-4">
-                {[
-                  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>, value: "360°", label: "Seguridad integral", sub: "Pentest · Hardening · Monitoreo" },
-                  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>, value: "n8n", label: "Automatizaciones", sub: "APIs · Bots · Workflows" },
-                  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>, value: "SaaS", label: "Desarrollo web", sub: "Next.js · React · Node.js" },
-                  { icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>, value: "Global", label: "Para todo el mundo", sub: "Desde Argentina · Sin fronteras" },
-                ].map((item, i) => (
-                  <div
-                    key={item.value}
-                    className="flex flex-col items-center gap-2 text-center px-4 py-6"
-                    style={{ borderRight: i < 3 ? "1px solid rgba(232,184,75,0.1)" : "none" }}
-                  >
-                    <div style={{ color: "rgba(232,184,75,0.5)" }}>{item.icon}</div>
-                    <span className="text-3xl font-bold uppercase md:text-4xl leading-none" style={{ color: "#e8b84b", fontFamily: "var(--font-serif)" }}>{item.value}</span>
-                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--text-2)" }}>{item.label}</span>
-                    <span className="text-[10px] uppercase tracking-wider hidden md:block" style={{ color: "var(--text-3)", fontFamily: "monospace" }}>{item.sub}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-xs uppercase tracking-[0.2em] mt-4 pt-4" style={{ color: "var(--text-3)", borderTop: "1px solid rgba(232,184,75,0.07)", fontFamily: "monospace" }}>
-                Trabajamos para clientes en todo el mundo
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="gold-line" />
-        </div>
-
-        {/* Services */}
-        <section id="servicios" aria-label="Servicios de Hersec" className="px-6 py-24 md:px-12" style={glass}>
+        {/* Problemas Reales */}
+        <section id="riesgos" aria-label="Problemas reales" className="px-6 py-24 md:px-12" style={glass}>
           <div className="mx-auto max-w-6xl">
-            <AnimatedSection className="mb-3 text-center"><span className="section-label">Servicios</span></AnimatedSection>
+            <AnimatedSection className="mb-3 text-center"><span className="section-label">Problemas Reales</span></AnimatedSection>
             <AnimatedSection delay={80} className="mb-4 text-center">
               <h2 className="text-4xl font-bold uppercase md:text-6xl leading-none" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>
-                Todo lo que necesitás, <span className="text-gradient">en un solo lugar</span>
+                Las amenazas no esperan.<br /><span className="text-gradient">Tu empresa tampoco debería.</span>
               </h2>
             </AnimatedSection>
             <AnimatedSection delay={140} className="mb-16">
               <p className="mx-auto max-w-2xl text-center text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
-                Desde asegurar tu infraestructura hasta automatizar tus operaciones o construir el sistema que tu negocio necesita.
+                Estos son los riesgos más frecuentes que enfrentan pymes, estudios y profesionales en Argentina y LATAM hoy.
               </p>
             </AnimatedSection>
             <div className="grid gap-6 sm:grid-cols-2">
-              {SERVICES.map((service, i) => {
-                const Icon = service.icon
+              {PAIN_POINTS.map((point, i) => {
+                const Icon = point.icon
                 return (
-                  <AnimatedSection key={service.title} delay={i * 80}>
+                  <AnimatedSection key={point.title} delay={i * 80}>
+                    <div className="card group h-full" style={{ borderColor: "rgba(232,184,75,0.12)" }}>
+                      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: "rgba(232,184,75,0.08)", color: "#e8b84b", border: "1px solid rgba(232,184,75,0.15)" }}>
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mb-2 text-lg font-bold uppercase tracking-wide" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>{point.title}</h3>
+                      <p className="text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{point.description}</p>
+                    </div>
+                  </AnimatedSection>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="servicios" aria-label="Servicios HERSEC" className="px-6 py-24 md:px-12">
+          <div className="mx-auto max-w-6xl">
+            <AnimatedSection className="mb-3 text-center"><span className="section-label">Nuestros Servicios</span></AnimatedSection>
+            <AnimatedSection delay={80} className="mb-4 text-center">
+              <h2 className="text-4xl font-bold uppercase md:text-6xl leading-none" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>
+                Cuatro productos.<br /><span className="text-gradient">Una sola misión.</span>
+              </h2>
+            </AnimatedSection>
+            <AnimatedSection delay={140} className="mb-16">
+              <p className="mx-auto max-w-2xl text-center text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
+                Cada servicio está diseñado para cubrir una fase crítica de tu seguridad operativa. Sin paquetes genéricos.
+              </p>
+            </AnimatedSection>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {PRODUCTS.map((product, i) => {
+                const Icon = product.icon
+                return (
+                  <AnimatedSection key={product.title} delay={i * 80}>
                     <div className="card group h-full">
                       <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl" style={{ background: "rgba(232,184,75,0.1)", color: "#e8b84b", border: "1px solid rgba(232,184,75,0.15)" }}>
                         <Icon className="h-6 w-6" />
                       </div>
-                      <h3 className="mb-2 text-xl font-bold uppercase tracking-wide" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>{service.title}</h3>
-                      <p className="mb-4 text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{service.description}</p>
+                      <h3 className="mb-2 text-xl font-bold uppercase tracking-wide" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>{product.title}</h3>
+                      <p className="mb-4 text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>{product.description}</p>
                       <div className="flex flex-wrap gap-2">
-                        {service.tags.map((tag) => (
+                        {product.tags.map((tag) => (
                           <span key={tag} className="rounded-md px-2 py-0.5 text-xs font-medium" style={{ background: "rgba(232,184,75,0.08)", color: "#e8b84b", border: "1px solid rgba(232,184,75,0.18)" }}>{tag}</span>
                         ))}
                       </div>
@@ -307,14 +374,14 @@ export default function HersecLanding() {
         </AnimatedSection>
 
         {/* Process */}
-        <section id="proceso" aria-label="Cómo trabajamos" className="px-6 py-24 md:px-12">
+        <section id="proceso" aria-label="Cómo trabajamos" className="px-6 py-24 md:px-12" style={glass}>
           <div className="mx-auto max-w-4xl">
             <AnimatedSection className="mb-3 text-center"><span className="section-label">Cómo trabajamos</span></AnimatedSection>
             <AnimatedSection delay={80} className="mb-4 text-center">
-              <h2 className="text-4xl font-bold uppercase md:text-5xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>Simple, directo y sin vueltas</h2>
+              <h2 className="text-4xl font-bold uppercase md:text-5xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>Metodología clara,<br />resultados concretos</h2>
             </AnimatedSection>
             <AnimatedSection delay={140} className="mb-14 text-center">
-              <p className="mx-auto max-w-xl text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>Nuestro proceso está pensado para llegar rápido a resultados concretos.</p>
+              <p className="mx-auto max-w-xl text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>Tres pasos para transformar tu exposición al riesgo en seguridad operativa real.</p>
             </AnimatedSection>
             <div className="flex flex-col">
               {PROCESS.map((item, i) => (
@@ -332,18 +399,18 @@ export default function HersecLanding() {
           </div>
         </section>
 
-        {/* Why Hersec */}
-        <section id="nosotros" aria-label="Por qué elegir Hersec" className="px-6 py-24 md:px-12" style={glass}>
+        {/* Why HERSEC */}
+        <section id="nosotros" aria-label="Por qué elegir HERSEC" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-12 md:grid-cols-2 md:items-start">
               <div>
                 <AnimatedSection direction="left">
-                  <span className="section-label">Por qué Hersec</span>
+                  <span className="section-label">Por qué HERSEC</span>
                   <h2 className="mt-4 mb-6 text-4xl font-bold uppercase leading-none md:text-6xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>
-                    Tecnología real,<br /><span className="text-gradient">resultados concretos.</span>
+                    Seguridad real,<br /><span className="text-gradient">no marketing.</span>
                   </h2>
                   <p className="text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
-                    No somos una agencia de marketing con sección de "tecnología". Somos técnicos que construyen, aseguran y automatizan. Cada proyecto lo tratamos como si fuera propio.
+                    No somos una agencia genérica con "servicio de seguridad". Somos especialistas en protección digital operativa para pymes y profesionales que no pueden darse el lujo de ser vulnerables.
                   </p>
                 </AnimatedSection>
               </div>
@@ -364,29 +431,34 @@ export default function HersecLanding() {
         </section>
 
         {/* CTA Banner */}
-        <section className="px-6 py-16 md:px-12">
+        <section className="px-6 py-16 md:px-12" style={glass}>
           <AnimatedSection>
             <div className="relative mx-auto max-w-5xl overflow-hidden rounded-3xl px-8 py-20 text-center" style={{ background: "linear-gradient(135deg, rgba(232,184,75,0.07) 0%, rgba(232,184,75,0.03) 100%)", border: "1px solid rgba(232,184,75,0.18)" }}>
               <div className="gold-line absolute top-0 left-1/4 right-1/4" />
-              <h2 className="mb-4 text-4xl font-bold uppercase md:text-6xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>¿Listo para el próximo nivel?</h2>
-              <p className="mb-8 text-base" style={{ color: "var(--text-2)" }}>Primera consulta sin costo. Te respondemos en menos de 24hs.</p>
+              <h2 className="mb-4 text-4xl font-bold uppercase md:text-5xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>
+                ¿Qué tan expuesta<br />está tu operación?
+              </h2>
+              <p className="mb-8 text-base max-w-lg mx-auto" style={{ color: "var(--text-2)" }}>
+                Solicitá un diagnóstico inicial y descubrí exactamente cuáles son tus puntos de riesgo antes de que alguien más los encuentre.
+              </p>
               <a href="#contacto" className="inline-flex items-center gap-2 rounded-xl px-8 py-4 text-base font-bold uppercase tracking-widest transition-all duration-200" style={{ background: "linear-gradient(135deg, #e8b84b, #c49a30)", color: "#0c1929", boxShadow: "0 0 24px rgba(232,184,75,0.25)" }}>
-                Contactar ahora
+                Solicitar diagnóstico gratuito
                 <ArrowRightIcon className="h-5 w-5" />
               </a>
+              <p className="mt-4 text-xs uppercase tracking-widest" style={{ color: "var(--text-3)" }}>Sin compromiso · Respondemos en menos de 24hs</p>
             </div>
           </AnimatedSection>
         </section>
 
         {/* Contact */}
-        <section id="contacto" aria-label="Contacto" className="px-6 py-24 md:px-12" style={glass}>
+        <section id="contacto" aria-label="Contacto" className="px-6 py-24 md:px-12">
           <div className="mx-auto max-w-2xl">
             <AnimatedSection className="mb-3 text-center"><span className="section-label">Contacto</span></AnimatedSection>
             <AnimatedSection delay={80} className="mb-4 text-center">
-              <h2 className="text-4xl font-bold uppercase md:text-5xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>Hablemos de tu proyecto</h2>
+              <h2 className="text-4xl font-bold uppercase md:text-5xl" style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)" }}>Hablemos de tu seguridad</h2>
             </AnimatedSection>
             <AnimatedSection delay={140} className="mb-12 text-center">
-              <p className="mx-auto max-w-md text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>Completá el formulario y te respondemos en menos de 24hs.</p>
+              <p className="mx-auto max-w-md text-sm leading-relaxed" style={{ color: "var(--text-2)" }}>Completá el formulario y te respondemos en menos de 24hs con un diagnóstico inicial sin costo.</p>
             </AnimatedSection>
             <AnimatedSection delay={200}><ContactForm /></AnimatedSection>
           </div>
@@ -398,19 +470,24 @@ export default function HersecLanding() {
           <div className="mx-auto max-w-6xl">
             <div className="mb-8 flex flex-col items-center justify-between gap-6 md:flex-row">
               <div className="flex items-center gap-2.5">
-                <Image src="/hersec-icon.jpg" alt="Hersec" width={28} height={28} className="object-contain rounded-sm" />
+                <Image src="/hersec-icon.jpg" alt="HERSEC Security" width={28} height={28} className="object-contain rounded-sm" />
                 <span className="text-lg font-bold uppercase tracking-widest" style={{ color: "#e8b84b", fontFamily: "var(--font-serif)" }}>HERSEC</span>
               </div>
               <nav aria-label="Navegación footer" className="flex flex-wrap items-center justify-center gap-6">
-                {["Servicios", "Proceso", "Nosotros", "Contacto"].map((item) => (
-                  <a key={item} href={`#${item.toLowerCase()}`} className="text-xs font-medium uppercase tracking-widest transition-colors hover:text-white" style={{ color: "var(--text-3)" }}>{item}</a>
+                {[
+                  { label: "Riesgos", href: "#riesgos" },
+                  { label: "Servicios", href: "#servicios" },
+                  { label: "Proceso", href: "#proceso" },
+                  { label: "Contacto", href: "#contacto" },
+                ].map((item) => (
+                  <a key={item.label} href={item.href} className="text-xs font-medium uppercase tracking-widest transition-colors hover:text-white" style={{ color: "var(--text-3)" }}>{item.label}</a>
                 ))}
               </nav>
             </div>
             <div className="gold-line mb-6" />
             <div className="flex flex-col items-center justify-between gap-2 text-center text-xs uppercase tracking-wide md:flex-row" style={{ color: "var(--text-3)" }}>
-              <span>© {new Date().getFullYear()} Hersec. Todos los derechos reservados.</span>
-              <span>mileadflow.com</span>
+              <span>© {new Date().getFullYear()} HERSEC Security. Todos los derechos reservados.</span>
+              <a href="mailto:contacto@hersecsecurity.com" className="hover:text-white transition-colors" style={{ color: "rgba(232,184,75,0.5)" }}>contacto@hersecsecurity.com</a>
             </div>
           </div>
         </footer>
