@@ -644,7 +644,7 @@ export default function HersecLanding() {
                 <div className="flex flex-col gap-6 h-full">
                   <div>
                     <div className="flex flex-col gap-3">
-                      <
+                      <a
                         href="mailto:contacto@hersecsecurity.com"
                         className="flex items-center gap-3 rounded-xl px-4 py-3.5 transition-all hover:opacity-80"
                         style={{ background: "rgba(232,184,75,0.05)", border: "1px solid rgba(232,184,75,0.15)" }}
