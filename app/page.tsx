@@ -686,7 +686,7 @@ export default function HersecLanding() {
                       "Sin contratos de largo plazo para empezar",
                     ].map((item) => (
                       <div key={item} className="flex items-start gap-2.5">
-                        <CheckIcon className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: "#e8b84b" } as React.CSSProperties} />
+                        <span style={{ color: "#e8b84b" }}><CheckIcon className="h-3.5 w-3.5 shrink-0 mt-0.5" /></span>
                         <span className="text-xs leading-relaxed" style={{ color: "var(--text-2)" }}>{item}</span>
                       </div>
                     ))}
