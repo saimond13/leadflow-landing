@@ -643,7 +643,6 @@ export default function HersecLanding() {
               <AnimatedSection delay={160} direction="left" className="lg:col-span-2">
                 <div className="flex flex-col gap-6 h-full">
                   <div>
-                    <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em]" style={{ color: "#e8b84b", fontFamily: "monospace" }}>Contacto directo</p>
                     <div className="flex flex-col gap-3">
                       <a
                         href="https://wa.me/5493425989300"
