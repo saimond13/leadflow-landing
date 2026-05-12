@@ -15,7 +15,7 @@ const outfit = Outfit({
   display: "swap",
 })
 
-const SITE_URL = "https://www.mileadflow.com"
+const SITE_URL = "https://www.hersecsecurity.com"
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
