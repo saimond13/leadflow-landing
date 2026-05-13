@@ -317,14 +317,15 @@ export default function HersecLanding() {
 
             {/* Headline fuerte orientado a riesgo/pérdida */}
             <AnimatedSection delay={300}>
-              <div className="mx-auto max-w-2xl">
+              <div className="mx-auto max-w-xl text-center">
                 <p
-                  className="text-xl leading-snug md:text-2xl font-semibold"
-                  style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)", letterSpacing: "0.01em" }}
+                  className="text-2xl leading-relaxed md:text-3xl font-light"
+                  style={{ color: "var(--text-2)", fontFamily: "var(--font-sans)", letterSpacing: "-0.01em" }}
                 >
-                  Cada semana, una empresa pierde datos, dinero o clientes<br className="hidden md:block" /> por una amenaza digital que nadie detectó a tiempo.
+                  Cada semana, una empresa pierde datos,<br className="hidden md:block" /> dinero o clientes por una amenaza digital{" "}
+                  <span className="font-semibold" style={{ color: "var(--text-1)" }}>que nadie detectó a tiempo.</span>
                 </p>
-                <p className="mt-3 text-base leading-relaxed" style={{ color: "var(--text-2)" }}>
+                <p className="mt-4 text-sm font-medium uppercase tracking-widest" style={{ color: "#e8b84b", fontFamily: "monospace" }}>
                   HERSEC actúa antes de que el daño sea irreversible.
                 </p>
               </div>
@@ -381,31 +382,31 @@ export default function HersecLanding() {
 
         {/* Diseñado para — franja sectorial */}
         <div style={{ background: "rgba(8,18,32,0.95)", borderTop: "1px solid rgba(232,184,75,0.1)", borderBottom: "1px solid rgba(232,184,75,0.1)" }}>
-          <div className="px-6 py-8 md:px-12">
-            <div className="mx-auto max-w-7xl flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+          <div className="px-6 py-5 md:px-12">
+            <div className="flex items-center gap-6 md:gap-10">
               <span
-                className="shrink-0 text-xs font-bold uppercase tracking-[0.25em]"
-                style={{ color: "#e8b84b", fontFamily: "monospace", minWidth: "max-content" }}
+                className="shrink-0 text-[10px] font-bold uppercase tracking-[0.25em]"
+                style={{ color: "#e8b84b", fontFamily: "monospace" }}
               >
                 Diseñado para
               </span>
-              <div
-                className="w-px h-8 hidden md:block"
-                style={{ background: "rgba(232,184,75,0.2)" }}
-              />
-              <div className="flex flex-wrap gap-x-6 gap-y-2">
-                {DESIGNED_FOR.map((sector, i) => (
-                  <span
-                    key={sector}
-                    className="text-sm font-medium"
-                    style={{ color: "var(--text-2)" }}
-                  >
-                    {sector}
-                    {i < DESIGNED_FOR.length - 1 && (
-                      <span className="ml-6 hidden md:inline" style={{ color: "rgba(232,184,75,0.2)" }}>·</span>
-                    )}
-                  </span>
-                ))}
+              <div className="w-px h-5 shrink-0" style={{ background: "rgba(232,184,75,0.2)" }} />
+              <div className="overflow-x-auto scrollbar-none">
+                <div className="flex items-center gap-0 min-w-max">
+                  {DESIGNED_FOR.map((sector, i) => (
+                    <span key={sector} className="flex items-center">
+                      <span
+                        className="text-xs font-medium whitespace-nowrap px-3"
+                        style={{ color: "var(--text-2)" }}
+                      >
+                        {sector}
+                      </span>
+                      {i < DESIGNED_FOR.length - 1 && (
+                        <span className="text-[10px]" style={{ color: "rgba(232,184,75,0.2)" }}>·</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
