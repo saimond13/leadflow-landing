@@ -2,7 +2,7 @@
 
 import { useState, useRef, FormEvent } from "react"
 
-const WEBHOOK_URL = "https://api.mileadflow.com/webhook/hersec-lead"
+const WEBHOOK_URL = "/api/lead"
 
 const SERVICES = [
   "HERSEC Mail Shield",
