@@ -1,14 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useCallback, useRef } from "react"
-
-interface Character {
-  char: string
-  x: number
-  y: number
-  speed: number
-}
+import { useState, useEffect, useRef } from "react"
 
 class TextScramble {
   el: HTMLElement
@@ -121,81 +114,92 @@ export const ScrambledTagline: React.FC = () => {
 }
 
 const RainingLettersBackground: React.FC = () => {
-  const [characters, setCharacters] = useState<Character[]>([])
-  const [activeIndices, setActiveIndices] = useState<Set<number>>(new Set())
+  const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const createCharacters = useCallback(() => {
-    const allChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"
-    const newCharacters: Character[] = []
-    for (let i = 0; i < 300; i++) {
-      newCharacters.push({
-        char: allChars[Math.floor(Math.random() * allChars.length)],
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        speed: 0.07 + Math.random() * 0.22,
-      })
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+
+    const ALL_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"
+    const CHAR_COUNT = 300
+
+    const chars = Array.from({ length: CHAR_COUNT }, () => ({
+      char: ALL_CHARS[Math.floor(Math.random() * ALL_CHARS.length)],
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      speed: 0.07 + Math.random() * 0.22,
+    }))
+
+    const resize = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
     }
-    return newCharacters
-  }, [])
+    resize()
+    window.addEventListener("resize", resize)
 
-  useEffect(() => { setCharacters(createCharacters()) }, [createCharacters])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const next = new Set<number>()
-      const count = Math.floor(Math.random() * 3) + 3
-      for (let i = 0; i < count; i++) {
-        next.add(Math.floor(Math.random() * characters.length))
-      }
-      setActiveIndices(next)
-    }, 50)
-    return () => clearInterval(interval)
-  }, [characters.length])
-
-  useEffect(() => {
+    const activeSet = new Set<number>()
+    let lastActiveUpdate = 0
     let rafId: number
-    const allChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?"
-    const tick = () => {
-      setCharacters((prev) =>
-        prev.map((c) => ({
-          ...c,
-          y: c.y + c.speed,
-          ...(c.y >= 100 && {
-            y: -5,
-            x: Math.random() * 100,
-            char: allChars[Math.floor(Math.random() * allChars.length)],
-          }),
-        }))
-      )
+
+    const tick = (timestamp: number) => {
+      if (timestamp - lastActiveUpdate > 50) {
+        activeSet.clear()
+        const count = Math.floor(Math.random() * 3) + 3
+        for (let i = 0; i < count; i++) {
+          activeSet.add(Math.floor(Math.random() * CHAR_COUNT))
+        }
+        lastActiveUpdate = timestamp
+      }
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Inactive chars — no shadow (fast path)
+      ctx.shadowBlur = 0
+      ctx.fillStyle = "rgba(232,184,75,0.1)"
+      ctx.font = "300 24px monospace"
+      for (let i = 0; i < chars.length; i++) {
+        const c = chars[i]
+        c.y += c.speed
+        if (c.y >= 100) {
+          c.y = -5
+          c.x = Math.random() * 100
+          c.char = ALL_CHARS[Math.floor(Math.random() * ALL_CHARS.length)]
+        }
+        if (!activeSet.has(i)) {
+          ctx.fillText(c.char, (c.x / 100) * canvas.width, (c.y / 100) * canvas.height)
+        }
+      }
+
+      // Active chars — glow (only 3–6 per frame)
+      ctx.font = "bold 24px monospace"
+      ctx.fillStyle = "#e8b84b"
+      ctx.shadowColor = "rgba(232,184,75,0.9)"
+      ctx.shadowBlur = 8
+      for (const i of activeSet) {
+        const c = chars[i]
+        ctx.fillText(c.char, (c.x / 100) * canvas.width, (c.y / 100) * canvas.height)
+      }
+      ctx.shadowBlur = 0
+
       rafId = requestAnimationFrame(tick)
     }
+
     rafId = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(rafId)
+    return () => {
+      cancelAnimationFrame(rafId)
+      window.removeEventListener("resize", resize)
+    }
   }, [])
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0, background: "#0c1929" }} aria-hidden="true">
-      {characters.map((char, index) => (
-        <span
-          key={index}
-          className="absolute select-none"
-          style={{
-            left: `${char.x}%`,
-            top: `${char.y}%`,
-            transform: `translate(-50%, -50%)`,
-            color: activeIndices.has(index) ? "#e8b84b" : "rgba(232,184,75,0.1)",
-            textShadow: activeIndices.has(index) ? "0 0 8px rgba(232,184,75,0.9), 0 0 18px rgba(232,184,75,0.4)" : "none",
-            fontFamily: "monospace",
-            fontSize: "1.5rem",
-            fontWeight: activeIndices.has(index) ? "700" : "300",
-            transition: "color 0.1s, text-shadow 0.1s",
-            willChange: "top",
-          }}
-        >
-          {char.char}
-        </span>
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 0, background: "#0c1929" }}
+      aria-hidden="true"
+    />
   )
 }
 
