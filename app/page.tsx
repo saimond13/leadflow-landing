@@ -414,33 +414,30 @@ export default function HersecLanding() {
           </div>
         </section>
 
-        {/* Diseñado para — franja sectorial */}
+        {/* Diseñado para — franja sectorial centrada */}
         <div style={{ background: "rgba(8,18,32,0.95)", borderTop: "1px solid rgba(232,184,75,0.1)", borderBottom: "1px solid rgba(232,184,75,0.1)" }}>
-          <div className="px-6 py-5 md:px-12">
-            <div className="flex items-center gap-6 md:gap-10">
+          <div className="px-6 py-6 md:px-12">
+            <div className="flex flex-col items-center gap-4">
               <span
-                className="shrink-0 text-[10px] font-bold uppercase tracking-[0.25em]"
-                style={{ color: "#e8b84b", fontFamily: "monospace" }}
+                className="text-[10px] font-bold uppercase tracking-[0.3em]"
+                style={{ color: "rgba(232,184,75,0.5)", fontFamily: "monospace" }}
               >
                 Diseñado para
               </span>
-              <div className="w-px h-5 shrink-0" style={{ background: "rgba(232,184,75,0.2)" }} />
-              <div className="overflow-x-auto scrollbar-none">
-                <div className="flex items-center gap-0 min-w-max">
-                  {DESIGNED_FOR.map((sector, i) => (
-                    <span key={sector} className="flex items-center">
-                      <span
-                        className="text-xs font-medium whitespace-nowrap px-3"
-                        style={{ color: "var(--text-2)" }}
-                      >
-                        {sector}
-                      </span>
-                      {i < DESIGNED_FOR.length - 1 && (
-                        <span className="text-[10px]" style={{ color: "rgba(232,184,75,0.2)" }}>·</span>
-                      )}
+              <div className="flex flex-wrap justify-center items-center gap-x-1 gap-y-2">
+                {DESIGNED_FOR.map((sector, i) => (
+                  <span key={sector} className="flex items-center">
+                    <span
+                      className="text-xs font-medium whitespace-nowrap px-2"
+                      style={{ color: "var(--text-2)" }}
+                    >
+                      {sector}
                     </span>
-                  ))}
-                </div>
+                    {i < DESIGNED_FOR.length - 1 && (
+                      <span className="text-[10px]" style={{ color: "rgba(232,184,75,0.25)" }}>·</span>
+                    )}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
