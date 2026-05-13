@@ -315,53 +315,20 @@ export default function HersecLanding() {
               />
             </AnimatedSection>
 
-            {/* Headline — manifesto 3 niveles */}
             <AnimatedSection delay={300}>
-              <div className="mx-auto max-w-3xl text-center flex flex-col items-center gap-5">
-
-                {/* Nivel 1 — eyebrow contexto */}
-                <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em]"
-                  style={{ color: "rgba(232,184,75,0.5)", fontFamily: "monospace" }}
-                >
-                  La amenaza que no ves
-                </span>
-
-                {/* Nivel 2 — display statement */}
-                <h2
-                  className="text-[clamp(2.6rem,7vw,5.5rem)] font-bold uppercase leading-[0.92] tracking-tight"
-                  style={{ color: "var(--text-1)", fontFamily: "var(--font-serif)", letterSpacing: "-0.02em" }}
-                >
-                  Cada semana,<br />
-                  <span style={{
-                    background: "linear-gradient(135deg, #f5d47a 0%, #e8b84b 50%, #c49a30 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}>
-                    una empresa pierde todo.
-                  </span>
-                </h2>
-
-                {/* Separador gold */}
-                <div className="w-12 h-0.5" style={{ background: "rgba(232,184,75,0.35)" }} />
-
-                {/* Nivel 3 — subtexto explicativo */}
+              <div className="mx-auto max-w-xl text-center flex flex-col items-center gap-4">
                 <p
-                  className="text-base md:text-lg font-light leading-relaxed max-w-lg"
-                  style={{ color: "var(--text-3)", fontFamily: "var(--font-sans)", letterSpacing: "0.01em" }}
+                  className="text-lg md:text-xl font-light leading-relaxed"
+                  style={{ color: "var(--text-2)", fontFamily: "var(--font-sans)", letterSpacing: "0.01em" }}
                 >
-                  Datos, dinero o clientes — por una amenaza digital que nadie detectó a tiempo.
+                  Fraudes, phishing y amenazas digitales afectan a empresas como la tuya todos los días.
                 </p>
-
-                {/* Resolución brand */}
                 <p
                   className="text-[11px] font-bold uppercase tracking-[0.25em]"
                   style={{ color: "#e8b84b", fontFamily: "monospace" }}
                 >
                   HERSEC actúa antes de que el daño sea irreversible
                 </p>
-
               </div>
             </AnimatedSection>
 
